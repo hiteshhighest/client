@@ -1,0 +1,266 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100%;
+    background: linear-gradient(45deg, #fff, rgb(245, 30, 30));
+    font-family: Arial, sans-serif;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 120px;
+    background-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0px 4px 15px #000;
+    z-index: 10;
+}
+
+.header div {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.logo {
+    height: 95%;
+    aspect-ratio: 1 / 1;
+}
+
+.header-left p {
+    font-weight: bold;
+    font-size: xx-large;
+    font-family: "Gideon Roman", serif;
+    margin-left: 10px;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-right a {
+    height: 100%;
+}
+
+.header-right button {
+    position: relative;
+    height: 100%;
+    width: 160px;
+    font-size: x-large;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: bold;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.header-right button:hover {
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+.organization-container {
+    position: relative;
+}
+
+.organization-dropdown {
+    position: absolute;
+    top: 100%; /* Ensures it is below the button */
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent */
+    width: 160px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.organization-dropdown a {
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+    display: block;
+    width: 100%; /* Make each <a> take full width */
+    position: relative; /* For positioning the hover effect */
+    overflow: hidden; /* Ensures hover effect stays within the element */
+}
+
+.organization-dropdown a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, rgb(245, 30, 30), rgb(50, 150, 250));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease-in-out;
+}
+
+.organization-dropdown a:hover::after {
+    transform: scaleX(1);
+}
+
+.organization-dropdown a:hover {
+    color: rgb(245, 30, 30);
+}
+
+.organization-container:hover .organization-dropdown {
+    opacity: 1;
+    visibility: visible;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 125px;
+    width: 100%;
+}
+
+.join-now {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 100px;
+    background-image: url(Images/background.jpg);
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: none;
+}
+
+.join-now p {
+    font-weight: bold;
+    color: rgb(245, 30, 30);;
+    font-family: "Gideon Roman", serif;
+    font-size: 100px
+}
+
+.join-now button {
+    border: none;
+    padding: 30px 50px;
+    margin-top: 40px;
+    border-radius: 14px;
+    font-size: x-large;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+    border: 2px solid black;
+    transition: all 0.3s;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+.join-now button:hover {
+    scale: 1.1;
+    opacity: 0.9;
+}
+
+.bio {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 0px 40px;
+    margin-top: 30px;
+    padding: 10px;
+    background-color: rgba(255,255,255,0.8);
+    border-radius: 13px;
+    border: 2px solid #000;
+    animation: popup linear;
+    animation-timeline: view();
+}
+
+.wwa p {
+    text-align: left;
+}
+
+.wwa p span {
+    display: block;
+    text-align: center;
+}
+
+.bio img {
+    height: 260px;
+}
+
+.bio p {
+    font-weight: bold;
+    font-size: larger;
+    line-height: 30px;
+    color: #000;
+}
+
+.bio p span {
+    font-size: x-large;
+    font-weight: bolder;
+    line-height: 100px;
+}
+
+.extra {
+    display: flex;
+    justify-content: space-around;
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-top: 30px;
+    margin-bottom: 75px;
+    animation: popup linear;
+    animation-timeline: view();
+}
+
+.extra div {
+    background-color: rgba(255,255,255,0.8);
+    border: 2px solid #000;
+    width: 33%;
+    padding: 40px;
+    border-radius: 10px;
+}
+
+.extra div h2 {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.extra div h2::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0px;
+    width: 25%;
+    height: 4px;
+    background: linear-gradient(45deg, #f00, #00f)
+}
+
+@keyframes popup {
+    0% {
+        opacity: 0;
+        scale: 0.2;
+    }
+    27% {
+        opacity: 1;
+        scale: 1;
+    }
+    100% {
+        opacity: 1;
+        scale: 1;
+    }
+}
